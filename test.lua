@@ -16,5 +16,3 @@ game:GetService("RunService").RenderStepped:Connect(function()
 	
     character.HumanoidRootPart.CFrame = cframe
 end)
-
-print('run')
