@@ -7,6 +7,8 @@
 -- 	Root.CFrame = CFrame.new(Root.Position, Root.Position + Mouse.Hit.LookVector)
 -- end)
 
+print('ran')
+
 game:GetService("RunService").RenderStepped:Connect(function()
     local forwardVector = (character.HumanoidRootPart.Position - mouse.hit.Position).Unit
     local rightVector = forwardVector:Cross(Vector3.new(0,1,0))
@@ -14,3 +16,5 @@ game:GetService("RunService").RenderStepped:Connect(function()
 	
     character.HumanoidRootPart.CFrame = cframe
 end)
+
+print('run')
