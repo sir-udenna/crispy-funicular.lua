@@ -9,10 +9,24 @@
 
 print('ran')
 
-game:GetService("RunService").RenderStepped:Connect(function()
-    local forwardVector = (character.HumanoidRootPart.Position - mouse.hit.Position).Unit
-    local rightVector = forwardVector:Cross(Vector3.new(0,1,0))
-    local cframe = CFrame.fromMatrix(character.HumanoidRootPart.Position, -rightVector, Vector3.new(0, 1, 0))
+RunService = game:GetService('RunService')
+Players = game:GetService('Players')
+Player = Players.LocalPlayer
+Mouse = Player:GetMouse()
+Char = Player.Character
+if not Char then
+	Player.CharacterAdded:Wait()
+	Char = Player.Character
+end
+
+RootPart = Char:WaitForChild('HumanoidRootPart')
+
+RunService.Stepped:connect(function()
 	
-    character.HumanoidRootPart.CFrame = cframe
+	local MousePos = Mouse.Hit.p
+	
+	local lookToPosVector = Vector3.new(MousePos.X,RootPart.CFrame.Y,MousePos.Z)
+	
+	RootPart.CFrame = CFrame.new(RootPart.CFrame.p,lookToPosVector)
+	
 end)
