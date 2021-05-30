@@ -50,7 +50,7 @@ RunService.Stepped:connect(function()
 	
 	local lookVector = Vector3.new(MousePos.X,RootPart.CFrame.Y,MousePos.Z)
 	
-	--RootPart.CFrame = CFrame.new(RootPart.CFrame.p,lookVector)
+	RootPart.CFrame = CFrame.new(RootPart.CFrame.p,lookVector)
 	local goal = {}
 	goal.CFrame = CFrame.new(RootPart.CFrame.p,lookVector)
  
